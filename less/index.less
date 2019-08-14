@@ -141,23 +141,22 @@ body {
 
 body {
   margin: 30px;
+}
+
+.content {
   height: ~'calc(200vh - 60px)';
   display: grid;
   grid-template:
-    'header header header'
-    'header header header'
-    'intro intro skills'
+    'intro intro intro'
     'history history skills'
     'history history skills'
-    'contact contact contact'
-    'footer footer footer';
+    'contact contact contact';
 }
 
 // Mixins
 
 // Header
 header {
-  grid-area: header;
 }
 
 // Intro
@@ -182,5 +181,4 @@ header {
 
 // Footer
 footer {
-  grid-area: footer;
 }
