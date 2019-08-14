@@ -160,6 +160,8 @@ body {
 
 // Mixins
 @margin: 30px;
+@primary: #37474f;
+@secondary: #1976d2;
 
 // Header
 header {
@@ -246,7 +248,7 @@ footer {
   position: absolute;
   left: 0;
   width: 100vw;
-  height: 200px;
+  height: 100px;
   margin-top: @margin;
 
   display: flex;
@@ -254,7 +256,8 @@ footer {
   justify-content: center;
   align-items: center;
 
-  background-color: lightgray;
+  background-color: @primary;
+  color: white;
 
   p {
     margin: 4px;
