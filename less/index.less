@@ -159,13 +159,14 @@ body {
 }
 
 // Mixins
+@margin: 30px;
 
 // Header
 header {
   nav {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: @margin;
 
     .logo {
       img {
@@ -243,4 +244,20 @@ header {
 
 // Footer
 footer {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 200px;
+  margin-top: @margin;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: lightgray;
+
+  p {
+    margin: 4px;
+  }
 }
