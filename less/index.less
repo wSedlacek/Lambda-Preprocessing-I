@@ -286,7 +286,15 @@ header {
     max-height: 600px;
   }
 
-  @media (max-width: 900px) {
+  .info {
+    margin: @margin;
+
+    @media (max-width: 560px) {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 1000px) {
     flex-direction: column;
     img {
       margin-bottom: @margin;
@@ -325,5 +333,9 @@ footer {
 
   p {
     margin: 4px;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
   }
 }
