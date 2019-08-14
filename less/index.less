@@ -129,37 +129,9 @@ table {
   border-spacing: 0;
 }
 
-// General
-
-* {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-html,
-body {
-  height: 100%;
-  font-family: 'Roboto Mono', monospace;
-}
-
-body {
-  margin: 30px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 2px;
-  padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.card:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
 // Variables
 @margin: 30px;
+@footer-height: 100px;
 @primary: #37474f;
 @secondary: #1976d2;
 @primary-text: white;
@@ -175,6 +147,36 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+// General
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  height: ~'calc(100vh - 30px * 2)';
+  margin: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 // Header
@@ -220,6 +222,7 @@ header {
 
 // Content
 .content {
+  margin-bottom: @footer-height + @margin;
   display: grid;
   grid-gap: 30px;
   grid-template:
@@ -259,11 +262,12 @@ header {
 
 // Footer
 footer {
+  position: fixed;
+  bottom: 0;
   margin-left: -@margin;
   max-width: 100vw;
   width: 100vw;
-  height: 100px;
-  margin-top: @margin;
+  height: @footer-height;
 
   .center();
   .primaryColor();
