@@ -158,10 +158,24 @@ body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-// Mixins
+// Variables
 @margin: 30px;
 @primary: #37474f;
 @secondary: #1976d2;
+@primary-text: white;
+
+// Mixins
+.primaryColor() {
+  background-color: @primary;
+  color: @primary-text;
+}
+
+.center() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 // Header
 header {
@@ -251,13 +265,9 @@ footer {
   height: 100px;
   margin-top: @margin;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  .center();
 
-  background-color: @primary;
-  color: white;
+  .primaryColor();
 
   p {
     margin: 4px;
