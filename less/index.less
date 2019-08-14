@@ -201,7 +201,11 @@ header {
     margin-bottom: @margin;
 
     .logo {
-      max-height: 64px;
+      background-color: @secondary;
+      width: 100px;
+      height: 64px;
+      mask: url(#mymask);
+      -webkit-mask-box-image: url('../assets/img/logo.png');
     }
 
     .links {
