@@ -141,4 +141,46 @@ body {
 
 body {
   margin: 30px;
+  height: ~'calc(200vh - 60px)';
+  display: grid;
+  grid-template:
+    'header header header'
+    'header header header'
+    'intro intro skills'
+    'history history skills'
+    'history history skills'
+    'contact contact contact'
+    'footer footer footer';
+}
+
+// Mixins
+
+// Header
+header {
+  grid-area: header;
+}
+
+// Intro
+#intro {
+  grid-area: intro;
+}
+
+// Skills
+#skills {
+  grid-area: skills;
+}
+
+// History
+#history {
+  grid-area: history;
+}
+
+// Contact
+#contact {
+  grid-area: contact;
+}
+
+// Footer
+footer {
+  grid-area: footer;
 }
