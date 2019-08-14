@@ -241,6 +241,20 @@ header {
 // Intro
 #intro {
   grid-area: intro;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  img {
+    max-height: 600px;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    img {
+      margin-bottom: @margin;
+    }
+  }
 }
 
 // Skills
