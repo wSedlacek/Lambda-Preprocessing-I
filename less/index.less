@@ -149,6 +149,27 @@ table {
   align-items: center;
 }
 
+.space() {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.list() {
+  ul {
+    padding-left: 22px;
+    line-height: 2rem;
+  }
+  ul li::before {
+    content: '|'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: @secondary; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+}
+
 // General
 
 * {
@@ -212,9 +233,7 @@ header {
 
     .links {
       width: 40%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+      .space();
 
       a {
         text-decoration: none;
@@ -261,9 +280,7 @@ header {
 // Intro
 #intro {
   grid-area: intro;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  .space();
 
   img {
     max-height: 600px;
@@ -280,11 +297,13 @@ header {
 // Skills
 #skills {
   grid-area: skills;
+  .list();
 }
 
 // History
 #history {
   grid-area: history;
+  .list();
 }
 
 // Contact
