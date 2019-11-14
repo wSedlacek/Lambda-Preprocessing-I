@@ -1,19 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
-  <title>My Resume</title>
+    <title>Resume - Bruce Wayne</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
 
-  <link rel="stylesheet" href="css/index.css">
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-</head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"></div>
+        <div class="links">
+          <a href="#intro">Intro</a>
+          <a href="#skills">Skills</a>
+          <a href="#history">Work History</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-<body>
-  <h1>My Resume</h1>
-</body>
+    <div class="content">
+      <section id="intro" class="card">
+        <img src="./assets/img/profile.jpg" alt="Bruce Wayne" />
+        <div class="info">
+          <h1>Bruce Wayne - 40 years old</h1>
+          <p>
+            Expert at navigating the business world in Gotham. I stand up for
+            the weak and give everyone a fair shake.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills" class="card">
+        <h2>
+          Skills
+        </h2>
+        <ul>
+          <li>Mixed Martial Arts</li>
+          <li>Throwing Unwieldly Metal Shaped Like Bats</li>
+          <li>Looks Good in Black</li>
+        </ul>
+      </section>
+
+      <section id="history" class="card">
+        <h2>Work History</h2>
+        <ul>
+          <li>CEO of Wayne Enterprises - 3 years</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <address>
+          <a href="mailto:bruce@wayne.com">bruce@wayne.com</a><br />
+          1 Wayne Manor, Gotham City, USA<br />
+          416-228-6251
+        </address>
+      </section>
+    </div>
+
+    <footer>
+      <p>Full creative credit goes to DC Comics/Warner Bros.</p>
+      <p>This is just a coding example using their creative work.</p>
+    </footer>
+  </body>
 </html>

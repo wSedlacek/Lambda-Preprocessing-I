@@ -1,59 +1,341 @@
-// Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+// out: ../css/index.css, compress: true
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+//  http://meyerweb.com/eric/tools/css/reset/
+//  v2.0 | 20110126
+//  License: none (public domain)
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+// HTML5 display-role reset for older browsers
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/* Set every element's box-sizing to border-box */
+// Variables
+@margin: 30px;
+@footer-height: 100px;
+@primary: #37474f;
+@secondary: #4a148c;
+@primary-text: white;
+
+// Mixins
+.primaryColor() {
+  background-color: @primary;
+  color: @primary-text;
+}
+
+.center() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.space() {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.list() {
+  ul {
+    padding-left: 22px;
+    line-height: 2rem;
+  }
+  ul li::before {
+    content: '|'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: @secondary; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+}
+
+// General
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.4rem;
 }
 
+body {
+  height: ~'calc(100vh - 30px * 2)';
+  margin: 30px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: solid 1px @secondary;
+  padding-bottom: 6px;
+  margin-bottom: @margin / 2;
+}
+
+h2 {
+  font-size: 1.3rem;
+  border-bottom: solid 1px @secondary;
+  padding-bottom: 6px;
+  margin-bottom: @margin / 2;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+// Header
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: @margin;
+
+    .logo {
+      background-color: @secondary;
+      width: 100px;
+      height: 64px;
+      mask: url(#mymask);
+      -webkit-mask-box-image: url('../assets/img/logo.png');
+    }
+
+    .links {
+      width: 40%;
+      .space();
+
+      a {
+        text-decoration: none;
+        font-size: 1rem;
+        color: black;
+      }
+    }
+
+    @media (max-width: 960px) {
+      flex-direction: column;
+      align-items: center;
+
+      .logo {
+        margin-bottom: 30px;
+      }
+
+      .links {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Content
+.content {
+  margin-bottom: @footer-height + @margin;
+  display: grid;
+  grid-gap: 30px;
+  grid-template:
+    'intro intro intro'
+    'skills skills history'
+    'skills skills history'
+    'skills skills contact';
+  @media (max-width: 1000px) {
+    grid-template:
+      'intro intro'
+      'skills skills'
+      'history history'
+      'history history'
+      'contact contact';
+  }
+}
+
+// Intro
+#intro {
+  grid-area: intro;
+  .space();
+
+  img {
+    max-height: 600px;
+  }
+
+  .info {
+    margin: @margin;
+
+    @media (max-width: 560px) {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    img {
+      margin-bottom: @margin;
+    }
+  }
+}
+
+// Skills
+#skills {
+  grid-area: skills;
+  .list();
+}
+
+// History
+#history {
+  grid-area: history;
+  .list();
+}
+
+// Contact
+#contact {
+  grid-area: contact;
+}
+
+// Footer
+footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: -@margin;
+  max-width: 100vw;
+  width: 100vw;
+  height: @footer-height;
+
+  .center();
+  .primaryColor();
+
+  p {
+    margin: 4px;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
+  }
+}
